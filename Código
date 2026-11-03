@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h> // Para usar o system("pause")
+
+// Funcoes de conversao de temperatura
+float c_para_f(float c) {
+    return (c * 1.8) + 32;
+}
+
+float c_para_k(float c) {
+    return c + 273.15;
+}
+
+float f_para_c(float f) {
+    return (f - 32) / 1.8;
+}
+
+float f_para_k(float f) {
+    return (f - 32) * 5/9 + 273.15;
+}
+
+float k_para_c(float k) {
+    return k - 273.15;
+}
+
+float k_para_f(float k) {
+    return (k - 273.15) * 1.8 + 32;
+}
+
+int main() {
+    int opcao;
+    float temp, res;
+
+    printf("=== CALCULADORA DE TEMPERATURA ===\n");
+    printf("1 - Celsius para Fahrenheit\n");
+    printf("2 - Celsius para Kelvin\n");
+    printf("3 - Fahrenheit para Celsius\n");
+    printf("4 - Fahrenheit para Kelvin\n");
+    printf("5 - Kelvin para Celsius\n");
+    printf("6 - Kelvin para Fahrenheit\n");
+    printf("Escolha uma opcao: ");
+    scanf("%d", &opcao);
+
+    printf("Digite o valor da temperatura: ");
+    scanf("%f", &temp);
+
+    switch(opcao) {
+        case 1:
+            res = c_para_f(temp);
+            printf("Resultado: %.2f F\n", res);
+            break;
+        case 2:
+            res = c_para_k(temp);
+            printf("Resultado: %.2f K\n", res);
+            break;
+        case 3:
+            res = f_para_c(temp);
+            printf("Resultado: %.2f C\n", res);
+            break;
+        case 4:
+            res = f_para_k(temp);
+            printf("Resultado: %.2f K\n", res);
+            break;
+        case 5:
+            res = k_para_c(temp);
+            printf("Resultado: %.2f C\n", res);
+            break;
+        case 6:
+            res = k_para_f(temp);
+            printf("Resultado: %.2f F\n", res);
+            break;
+        default:
+            printf("Opcao invalida!!\n");
+            break;
+    }
+
+    printf("\n");
+    system("pause"); // Pausa a tela no Windows pra nao fechar sozinho
+    return 0;
+}
